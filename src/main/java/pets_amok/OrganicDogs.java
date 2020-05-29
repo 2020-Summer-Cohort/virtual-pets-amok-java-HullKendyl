@@ -12,6 +12,13 @@ public class OrganicDogs extends VirtualPet{
       super(name, description, boredom, health, happiness);
    }
 
+   @Override
+//           System.out.println("Name\t|Boredom\t|Health\t|Happiness\t|Hunger\t|Thirst\t|Cage Cleanliness\t|Oil/Maintenance Level");
+   public String retrieveStatus() {
+      return name + "\t" + "|" + boredom + "\t" + "|"
+              + health + "\t" + "|" + happiness + "\t" + "|" + hunger + "\t" + "|" + thirst + "\t" + "|" + cageCleanliness + "\t" + "|" + "N/A";
+   }
+
    //create getter methods
    public int getHunger() {
       return hunger;
@@ -26,6 +33,8 @@ public class OrganicDogs extends VirtualPet{
    }
 
    //create additional methods
+
+
 }
 
 

@@ -1,15 +1,15 @@
 package pets_amok;
 
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
     // declare variables
 
-    private String name;
-    private String description;
-    private int boredom;
-    private int health;
-    private int happiness;
+    protected String name;
+    protected String description;
+    protected  int boredom;
+    protected  int health;
+    protected int happiness;
 
     // create constructor with name & description
 
@@ -61,6 +61,8 @@ public class VirtualPet {
 //        hunger -= 2;
 //        thirst -= 2;
     }
+
+    public abstract String retrieveStatus();
 
     void tick() {
         boredom = boredom -= 5;
