@@ -1,33 +1,25 @@
 package pets_amok;
 
-
 public abstract class VirtualPet {
 
-    // declare variables
-
-    protected String name;
-    protected String description;
-    protected  int boredom;
-    protected  int health;
+    protected  String name;
+    protected  String description;
+    protected int health;
     protected int happiness;
+    protected int boredom;
 
-    // create constructor with name & description
-
-    public VirtualPet(String name, String description){
+    public VirtualPet(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public VirtualPet(String name, String description, int boredom, int health, int happiness) {
+    public VirtualPet(String name, String description, int health, int happiness, int boredom) {
         this.name = name;
         this.description = description;
-        this.boredom = boredom;
         this.health = health;
         this.happiness = happiness;
-
+        this.boredom = boredom;
     }
-
-    //generate getter methods
 
     public String getName() {
         return name;
@@ -37,37 +29,44 @@ public abstract class VirtualPet {
         return description;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public int getHappiness() {
+        return happiness;
+    }
+
     public int getBoredom() {
         return boredom;
     }
 
-    public int getHealth() {return health;}
-
-    public int getHappiness() {return happiness;}
-
-    //methods to update game stats based on playerSelection
-
-    public void actionFeedOrganicAnimals(){
-//        hunger += 10;
-//        thirst -= 2;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void actionGiveWaterToOrganicAnimals(){
-//        thirst += 10;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setHappiness(int happiness) {
+        this.happiness = happiness;
     }
 
     public void actionPlayWithAnAnimal(){
-        boredom += 10;
-//        hunger -= 2;
-//        thirst -= 2;
+        boredom -= 10;
+        happiness += 10;
+    }
+
+    public void tick(){
+        happiness -= 1;
+        health -= 1;
+        boredom -= 1;
     }
 
     public abstract String retrieveStatus();
-
-    void tick() {
-        boredom = boredom -= 5;
-//        hunger = hunger -= 5;
-//        thirst = thirst -= 5;
-
-    }
 }

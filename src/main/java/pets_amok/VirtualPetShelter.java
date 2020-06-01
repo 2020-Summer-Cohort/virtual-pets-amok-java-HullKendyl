@@ -1,60 +1,30 @@
 package pets_amok;
 
-
 import java.util.*;
 
 public class VirtualPetShelter {
 
-    Map<String, VirtualPet> petMap = new HashMap<String, VirtualPet>();
+    Map<String, VirtualPet> petMap = new HashMap<>();
 
-    public void addAnimal(VirtualPet pet) {
-        petMap.put(pet.getName(),pet);
+    public void addVirtualPet(VirtualPet pet) {
+        petMap.put(pet.getName(), pet);
     }
 
-    public void actionFeedOrganicAnimals(){
-        for (VirtualPet petToFeed : petMap.values()) {
-            petToFeed.actionFeedOrganicAnimals();
-        }
-    }
-
-    public void actionGiveWaterToOrganicAnimals(){
-        for (VirtualPet petToWater: petMap.values()){
-            petToWater.actionGiveWaterToOrganicAnimals();
-        }
-    }
-
-    public void actionPlayWithPet(String petName) {
-        petMap.get(petName).actionPlayWithAnAnimal();
-    }
-
-    public void oilingMaintainingRobotAnimals(){
-
-    }
-
-    public void cleanDogCages(){
-
+    public Collection<VirtualPet> retrieveAllVirtualPets() {
+        return  petMap.values();
     }
 
     public Set<String> retrievePetNames(){
         return petMap.keySet();
     }
 
-    public Collection<VirtualPet> retrieveAllPets() {
-        return petMap.values();
-    }
-
-
-    // Set up tick method
-
-    public void tickAll(){
-        for (VirtualPet petToTick: petMap.values()){
-            petToTick.tick();
-        }
+    public void actionPlayWithPet(String petName) {
+        petMap.get(petName).actionPlayWithAnAnimal();
     }
 
     public void adopt() {
         System.out.println("Which animal would you like to adopt?");
-        for (VirtualPet pet:retrieveAllPets()) {
+        for (VirtualPet pet:retrieveAllVirtualPets()) {
             System.out.println(pet.getName() + " - " + pet.getDescription());
         }
         Scanner scanner = new Scanner(System.in);
@@ -67,4 +37,11 @@ public class VirtualPetShelter {
         }
 
     }
+
+    public void tickAll() {
+        for (VirtualPet petToTick: petMap.values()){
+            petToTick.tick();
+        }
+    }
 }
+
