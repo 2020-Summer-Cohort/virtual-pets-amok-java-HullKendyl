@@ -5,6 +5,18 @@ import java.util.Scanner;
 
 public class VirtualPetShelterApplication {
 
+// TDD: While getting the project done is always more important than getting it done the "right way", we'd like you to write
+// tests for this application. Contact one of us if you want a hand getting started with them
+
+// Clean Code: Your main method is pretty long and and dense. If this were an enterprise application and we added more and more
+// code, eventually it would be very difficult to work with. Move functionality like feeding all animals into the VirtualPetShelter,
+// and then call those methods from within your main method. You can also split chunks like your System.out.println blocks into their own
+// methods in VirtualPetShelterApplication to clean up the main method.
+
+// OOP: Notice how much is of the contents of the OrganicCat and OrganicDog classes are common between them. When we see code duplicated
+// like that, another super class is useful. It's tricky to figure out where to use an interface and where to use a super class at first.
+// We're here if you want to talk it through
+
     public static void main(String[] args) {
 
         OrganicDog od1 = new OrganicDog("Buddy", "Border Collie. He is highly energetic and loves to play,",
