@@ -1,6 +1,6 @@
 package pets_amok;
 
-public class OrganicDog extends Dog implements OrganicDetails{
+public class OrganicDog extends Dog implements OrganicDetails {
 
     private int hunger;
     private int thirst;
@@ -23,7 +23,7 @@ public class OrganicDog extends Dog implements OrganicDetails{
         this.needToEliminateWaste = needToEliminateWaste;
     }
 
-    public void actionCleanCage(){
+    public void actionCleanCage() {
         cageCleanliness += 20;
 
     }
@@ -39,7 +39,7 @@ public class OrganicDog extends Dog implements OrganicDetails{
     }
 
     @Override
-    public void actionPlayWithAnAnimal(){
+    public void actionPlayWithAnAnimal() {
         boredom -= 15;
         happiness += 10;
         hunger += 5;
@@ -73,49 +73,31 @@ public class OrganicDog extends Dog implements OrganicDetails{
     }
 
     @Override
-    public String retrieveStatus(){
-        return name + "\t" + "|" + health + "\t\t" + "|" + happiness + "\t\t\t" + "|" + boredom  + "\t\t\t" + "|" +
-        hunger + "\t\t" + "|" + thirst + "\t\t" + "|" + cageCleanliness + "\t\t\t\t\t" + "|" + needToEliminateWaste + "\t\t\t\t" + "|" + "N/A";
+    public String retrieveStatus() {
+        return name + "\t" + "|" + health + "\t\t" + "|" + happiness + "\t\t\t" + "|" + boredom + "\t\t\t" + "|" +
+                hunger + "\t\t" + "|" + thirst + "\t\t" + "|" + cageCleanliness + "\t\t\t\t\t" + "|" + needToEliminateWaste + "\t\t\t\t" + "|" + "N/A";
     }
 
     @Override
-    public void tick(){
-        boredom +=  1;
+    public void tick() {
+        boredom += 1;
         thirst += 1;
         hunger += 1;
         cageCleanliness -= 1;
         needToEliminateWaste += 3;
 
-        if (cageCleanliness >=50) {
+        if (cageCleanliness >= 40 || hunger <= 40 || thirst <= 40 || boredom <= 40) {
             int currentHealthStatus = super.getHealth();
-            super.setHealth(currentHealthStatus - 1);
+            super.setHealth(currentHealthStatus + 5);
             int currentHappiness = super.getHappiness();
-            super.setHappiness(currentHappiness - 1);
+            super.setHappiness(currentHappiness + 5);
         }
 
-        if (cageCleanliness<=49) {
+        if (cageCleanliness <= 49) {
             int currentHealthStatus = super.getHealth();
             super.setHealth(currentHealthStatus - 1);
             int currentHappiness = super.getHappiness();
             super.setHappiness(currentHappiness - 1);
-        }
-        if (hunger <50) {
-            int currentHealthStatus = super.getHealth();
-            super.setHealth(currentHealthStatus - 1);
-            int currentHappiness = super.getHappiness();
-            super.setHappiness(currentHappiness - 1);
-        }
-        if (thirst <50) {
-            int currentHealthStatus = super.getHealth();
-            super.setHealth(currentHealthStatus - 1);
-            int currentHappiness = super.getHappiness();
-            super.setHappiness(currentHappiness - 1);
-        }
-        if (boredom <20) {
-            int currentHealthStatus = super.getHealth();
-            super.setHealth(currentHealthStatus - 2);
-            int currentHappiness = super.getHappiness();
-            super.setHappiness(currentHappiness - 2);
-        }
         }
     }
+}

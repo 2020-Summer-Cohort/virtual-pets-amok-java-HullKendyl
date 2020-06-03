@@ -45,6 +45,8 @@ public class OrganicCat extends Cat implements OrganicDetails {
 
     @Override
     public void tick() {
+        happiness -= 1;
+        health -= 1;
         boredom += 1;
         thirst -= 1;
         hunger -= 1;

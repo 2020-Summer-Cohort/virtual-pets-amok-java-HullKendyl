@@ -4,6 +4,4 @@ public interface RobotDetails {
 
     void oilRobot();
 
-    int getOilAmount();
-
 }
